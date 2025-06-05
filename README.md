@@ -23,7 +23,7 @@ alacritty tmux nvim astronvim
 
 Others:
 ```bash
-# astronvim not using vim or nvim stow
+# for NVIM: only astronvim, not using any vim or nvim stow
 
 # use `git status` and `git diff` to show uncommited changes and untracked files.
 

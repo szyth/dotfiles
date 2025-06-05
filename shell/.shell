@@ -57,7 +57,7 @@ shopt -s histappend 2>/dev/null || true
 # Ignore duplicates & commands starting with space
 HISTCONTROL=ignoreboth  # ignoredups and ignorespace
 # Ignore common “noise” commands from history
-HISTIGNORE="ls:ls *:ll:la:cd:cd :pwd:clear:exit:history:ps:top:date:whoami:uptime:tm"
+HISTIGNORE="ls:ls *:ll:la:cd:cd :pwd:clear:exit:history:ps:top:date:whoami:uptime:tm:nvim:dev"
 # Save history immediately
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 
