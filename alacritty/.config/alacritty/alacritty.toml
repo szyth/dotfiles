@@ -13,30 +13,30 @@ italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
 size = 20.0 
 builtin_box_drawing = true
 
-# TokyoNight theme
+# iterm2 default
 [colors.primary]
-background = "#0f0f0f"
-foreground = "#c0caf5"
+background = "#101421"
+foreground = "#dcdad5" 
 
 [colors.normal]
-black   = "#0f0f0f"
-red     = "#f7768e"
-green   = "#9ece6a"
-yellow  = "#e0af68"
-blue    = "#7aa2f7"
-magenta = "#bb9af7"
-cyan    = "#7dcfff"
-white   = "#a9b1d6"
+black   = "#2e2e2e"
+red     = "#eb4129"
+green   = "#abe047"
+yellow  = "#f6c744"
+blue    = "#47a0f3"
+magenta = "#7b5cb0"
+cyan    = "#64dbed"
+white   = "#c0c3c8" 
 
 [colors.bright]
-black   = "#414868"
-red     = "#f7768e"
-green   = "#9ece6a"
-yellow  = "#e0af68"
-blue    = "#7aa2f7"
-magenta = "#bb9af7"
-cyan    = "#7dcfff"
-white   = "#c0caf5"
+black   = "#565656"
+red     = "#ec5357"
+green   = "#c0e17d"
+yellow  = "#f9da6a"
+blue    = "#49a4f8"
+magenta = "#a47de9"
+cyan    = "#99faf2"
+white   = "#d2d2d2"
 
 [cursor]
 style = { shape = "Block", blinking = "On" }
