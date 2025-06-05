@@ -11,11 +11,7 @@ find . -name '.DS_Store' -print -delete
 stow hammerspoon shell alacritty tmux astronvim
 
 # add following in .bashrc
-source ~/.shell_common
-PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ " # do echo $PS1 first
-
-# add following in .zshrc
-source ~/.shell_common
+source ~/.shell
 ```
 
 Packages:
