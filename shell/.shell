@@ -11,34 +11,6 @@ alias dbm='ssh -N -L localhost:7474:localhost:7474 -L localhost:7687:localhost:7
 alias st='ssh ubuntu@a.b.c.d -i privatekey' # ssh
 
 
-function dev() {
-  local dir="$PWD"
-  local session="dev"
-
-  # Check if session exists
-  tmux has-session -t "$session" 2>/dev/null
-  if [ $? != 0 ]; then
-    # Create new session for shell at window:0
-    tmux new-session -d -s "$session" -n "shell"
-
-    # Create window:1 for nvim 
-    tmux new-window -t "$session" -n "editor"
-    # Run `nvim`
-    tmux send-keys -t "$session:1" "nvim" C-m
-    
-    # Move shell after nvim
-    # Reason: session starts at index 0, and switching with Prefix+index as index=0 is difficult. Hence:
-    # nvim: window 1, shell: window 2.
-    tmux move-window -s "$session":0 -t "$session":2
-
-    # Select editor window
-    tmux select-window -t "$session:1"
-  fi
-
-  # attach 'dev' session if already exists.
-  tmux attach-session -t "$session"
-}
-
 # set default editor as nvim
 export EDITOR=/opt/homebrew/bin/nvim # check `which nvim`
 
