@@ -28,13 +28,12 @@ cd ~/dotfiles && for d in */ ; do stow -D "${d%/}"; done
 Notes:
 - Default shell: Bash
 - For full IDE setup use Astronvim. dont stow `vim` or `nvim`
-- For VM setup:
+- For Quick VM setup:
     - Dotfiles: `tmux, vim`
     - install `xclip`: for `tmux` yellow copy system-wide
     - install `neovim` only if `vim --version | grep clipboard` returns `-clipboard`, neovim has `+clipboard` required for system-wide copy
         - Then link `.vimrc` to neovim
         ```bash
-        mkdir -p ~/.config/nvim
-        ln -s ~/.vimrc ~/.config/nvim/init.vim
+        mkdir -p ~/.config/nvim && ln -s ~/.vimrc ~/.config/nvim/init.vim
         ```
-    - Note: System-wide copy in (neo)vim does not work in SSH.
+    - Note: System-wide copy in (neo)vim does not work over SSH. Refer plugin `osc52`
