@@ -56,14 +56,12 @@ colorscheme slate
 " jj for Normal Mode
 inoremap jj <Esc>
 
-" Space s to save
-nnoremap <Leader>s :w<CR>
+" Space w to save
+nnoremap <Leader>w :w<CR>
 
 " Space q to exit
 nnoremap <Leader>q :q<CR>
 
-" Space wq to save and exit
-nnoremap <Leader>wq :wq<CR>
 
 " Space e for file explorer
 nnoremap <Leader>e :Explore<CR>
@@ -74,7 +72,11 @@ nnoremap <Leader>f :find
 " Space / to cleanup the search results
 nnoremap <Leader>/ :nohlsearch<CR>
 
-
+" Set cursor shape: block in normal, line in insert
+if exists('$TERM')
+  let &t_SI = "\e[6 q"   " Insert mode: line
+  let &t_EI = "\e[2 q"   " Normal mode: block
+endif
 
 """""""""""""""""""" TOMNOMNOM's vim file, without 3rd party plugins, plus my edits """"""""""""""""""""""""""
 
