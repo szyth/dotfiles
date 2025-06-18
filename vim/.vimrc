@@ -4,8 +4,8 @@ syntax on
 let mapleader=" "
 let maplocalleader=" "
 
-" This was not working for some reason, 
-" therefore added it in `init.lua` for neovim
+
+" Enable System-wide copy paste
 set clipboard=unnamedplus
 
 " Enable line numbers and relative line numbers
