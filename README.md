@@ -21,9 +21,18 @@ source ~/.shell
 
 Others:
 ```bash
-# for NVIM: only astronvim, not using any vim or nvim stow
-# default shell: bash
-
 # unlink all stow. stow -D <dir>
 cd ~/dotfiles && for d in */ ; do stow -D "${d%/}"; done
 ```
+
+Notes:
+- Default shell: Bash
+- For full IDE setup use Astronvim. dont stow `vim` or `nvim`
+- For Remote VM setup:
+    - Dotfiles: `tmux, vim`
+    - install `xclip` and install `neovim` only if `vim --version | grep clipboard` returns `-clipboard`, neovim has `+clipboard` required for system-wide copy
+        - Then link `.vimrc` to neovim
+        ```bash
+        mkdir -p ~/.config/nvim
+        ln -s ~/.vimrc ~/.config/nvim/init.vim
+        ```
