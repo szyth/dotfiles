@@ -5,6 +5,17 @@ decorations = "Buttonless"         # macOS-specific: no close/max/min buttons
 dynamic_padding = true
 padding = { x = 8, y = 0 }
 
+# for Mac, word jumping using Alt + Arrowkey
+[[keyboard.bindings]]
+key = "Left"
+mods = "Alt"
+chars = "\u001bb" # ESC + b = move back one word in readline/bash
+
+[[keyboard.bindings]]
+key = "Right"
+mods = "Alt"
+chars = "\u001bf" # ESC + f = move forward one word in readline/bash
+
 [font]
 # Choose your preferred Nerd Font with icons
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
