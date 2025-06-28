@@ -9,6 +9,9 @@ echo "source ~/.shell.common" >> ~/.bashrc
 
 # install Font
 
+git clone https://github.com/szyth/dotfiles.git  
+
 # git clone astronvim (https://docs.astronvim.com) in ./astronvim/.config/nvim
+
 stow shell alacritty tmux astronvim astroconfig
 ```
