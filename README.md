@@ -1,34 +1,14 @@
 # Fully compatible with Mac and Ubuntu
 
-Refer [ubuntu.md] and [mac.md]
+## Steps:
+1. Clone this repo
+2. Install required packages
+3. Stow
 
-```bash
-git clone https://github.com/szyth/dotfiles.git
-cd dotfiles
+Refer `ubuntu.md` and `mac.md` for detailed setup
 
-# INSTALL PACKAGES
-# stow git alacritty tmux nvim astronvim cargo rust-analyzer xclip(only required for linux)
-# go through astronvim docs for setup and required packages (https://docs.astronvim.com)
-# install given font
-
-# remove .DS_Store files, in Mac
-find . -name '.DS_Store' -print -delete
-
-# stow
-stow hammerspoon shell alacritty tmux astronvim
-
-# add following in .bashrc
-source ~/.shell
-source ~/.shell.mac # in mac
-```
-
-Others:
-```bash
-# unlink all stow. stow -D <dir>
-cd ~/dotfiles && for d in */ ; do stow -D "${d%/}"; done
-```
-
-Notes:
+---
+## Notes:
 - Default shell: Bash
 - For full IDE setup use Astronvim. dont stow `vim` or `nvim`
 - For Quick VM setup:
@@ -40,3 +20,12 @@ Notes:
         mkdir -p ~/.config/nvim && ln -s ~/.vimrc ~/.config/nvim/init.vim
         ```
     - Note: System-wide copy in (neo)vim does not work over SSH. Refer plugin `osc52`
+
+---
+
+### Unstow package
+```bash
+# unlink all stow. stow -D <dir>
+cd ~/dotfiles && for d in */ ; do stow -D "${d%/}"; done
+```
+
