@@ -1,5 +1,7 @@
 # Fully compatible with Mac and Ubuntu
 
+Refer [ubuntu.md] and [mac.md]
+
 ```bash
 git clone https://github.com/szyth/dotfiles.git
 cd dotfiles
