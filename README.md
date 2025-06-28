@@ -17,6 +17,7 @@ stow hammerspoon shell alacritty tmux astronvim
 
 # add following in .bashrc
 source ~/.shell
+source ~/.shell.mac # in mac
 ```
 
 Others:

@@ -1,0 +1,6 @@
+export PATH="/usr/local/bin:/usr/local/sbin:/opt/homebrew/bin:$PATH" # IMPORTANT for bash, when default mac shell is zsh.
+export BASH_SILENCE_DEPRECATION_WARNING=1 # hide zsh warning
+
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin" # vs code path for `code .`
+export PATH="$PATH:/Applications/calibre.app/Contents/MacOS" # calibre plugins 
+export EDITOR=/opt/homebrew/bin/nvim # check `which nvim`
