@@ -15,10 +15,21 @@ if [ -n "$TMUX" ]; then
   PROMPT_COMMAND='tmux rename-window $(basename "$PWD")'
 fi
 
+# Auto-start tmux if not already inside it
+if [ -z "$TMUX" ] && [[ $- == *i* ]] && [ -z "$SSH_CONNECTION" ]; then
+  SESSION="default"
 
-# set default editor as nvim
-export EDITOR=/snap/bin/nvim # check `which nvim`
-. "$HOME/.cargo/env" # cargo 
+  if tmux has-session -t "$SESSION" 2>/dev/null; then
+    tmux new-window -t "$SESSION"
+    tmux -u attach-session -t "$SESSION"
+  else
+    tmux -u new-session -s "$SESSION"
+  fi
+fi
+
+
+source "$HOME/.cargo/env" # cargo 
+
 ################### BASH and ZSH - END #########################
 
 ################### BASH only #########################

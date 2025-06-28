@@ -1,0 +1,2 @@
+# set default editor as nvim
+export EDITOR=/snap/bin/nvim # check `which nvim`
