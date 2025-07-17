@@ -11,7 +11,8 @@ echo "source ~/.shell.common" >> ~/.bashrc
 
 git clone https://github.com/szyth/dotfiles.git  
 
-# git clone astronvim (https://docs.astronvim.com) in ./astronvim/.config/nvim
+# git clone astronvim (https://docs.astronvim.com) in $HOME/dotfiles/astronvim/.config/nvim
 
+# stow
 stow shell alacritty tmux astronvim astroconfig
 ```
