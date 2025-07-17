@@ -3,6 +3,7 @@
 # install firefox, brew
 
 brew install stow alarcitty tmux nvim hammerspoon ripgrep
+chsh -s /bin/bash # change shell to bash, then restart(?) device, if fails check `echo $0` and `/etc/shells`
 curl https://sh.rustup.rs -sSf | sh
 echo "source ~/.bash.mac" >> ~/.bash_profile
 echo "source ~/.shell.common" >> ~/.bash_profile
