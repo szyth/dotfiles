@@ -2,7 +2,7 @@
 # on a fresh mac
 # install firefox, brew
 
-brew install stow alarcitty tmux nvim hammerspoon ripgrep
+brew install stow alarcitty tmux nvim hammerspoon ripgrep fd
 chsh -s /bin/bash # change shell to bash, then restart(?) device, if fails check `echo $0` and `/etc/shells`
 curl https://sh.rustup.rs -sSf | sh
 echo "source ~/.bash.mac" >> ~/.bash_profile
