@@ -1,6 +1,6 @@
 local appBindings = {
 	["q"] = "alacritty",
-	["a"] = "Visual Studio Code",
+	["a"] = "VSCodium",
 	["z"] = "Firefox",
 	["w"] = "Zoom.us",
 	["s"] = "Slack",

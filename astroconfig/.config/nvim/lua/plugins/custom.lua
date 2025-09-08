@@ -1,10 +1,22 @@
--- git clone astronvim and then place this on path
 return {
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    ---@type Flash.Config
+    opts = {},
+    -- stylua: ignore
+    keys = {
+      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    },
+  },
   {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
     opts = { -- extend the plugin options
-      -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
       diagnostics = {
         virtual_text = false,
       },
@@ -15,30 +27,34 @@ return {
       },
     },
   },
-  "AstroNvim/astrolsp",
-  ---@type AstroLSPOpts
-  opts = {
-    features = {
-      inlay_hints = true, -- enable inlay hints globally on startup, doesnt work for some reason
-    },
-  },
   {
-    "nvim-neo-tree/neo-tree.nvim",
+    "AstroNvim/astrolsp",
+    ---@type AstroLSPOpts
     opts = {
-      filesystem = {
-        filtered_items = {
-          visible = true,
-          -- show_hidden_count = true,
-          -- hide_dotfiles = false,
-          -- hide_gitignored = true,
-          -- hide_by_name = {
-          --   ".git",
-          -- '.DS_Store',
-          -- 'thumbs.db',
-          -- },
-          never_show = {},
-        },
+      features = {
+        inlay_hints = true, -- enable inlay hints globally on startup
       },
     },
   },
+  -- uncomment to open Neo-tree by default 
+  -- {
+  --   "nvim-neo-tree/neo-tree.nvim",
+  --   cmd = "Neotree",
+  --   opts = {
+  --     filesystem = {
+  --       filtered_items = {
+  --         visible = true,
+  --         never_show = {},
+  --       },
+  --     },
+  --   },
+  --   init = function()
+  --     vim.api.nvim_create_autocmd("VimEnter", {
+  --       callback = function()
+  --         require("neo-tree.command").execute({ toggle = false, dir = vim.loop.cwd() })
+  --       end,
+  --     })
+  --   end,
+  -- }
 }
+
