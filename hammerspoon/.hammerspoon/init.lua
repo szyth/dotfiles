@@ -10,6 +10,7 @@ local appBindings = {
 	["c"] = "Todoist",
 	["v"] = "UTM",
 	["f"] = "Calibre",
+	["j"] = "Yaak",
 }
 
 for key, appName in pairs(appBindings) do
