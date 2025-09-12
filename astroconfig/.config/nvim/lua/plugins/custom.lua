@@ -17,6 +17,13 @@ return {
     "AstroNvim/astrocore",
     ---@type AstroCoreOpts
     opts = { -- extend the plugin options
+      mappings = {
+        -- set leader 1 and 2 for buffer left and right movement
+        n = {
+          ["<leader>1"] = { ":bp<CR>", desc = "Previous buffer" },
+          ["<leader>2"] = { ":bn<CR>", desc = "Next buffer" },
+        },
+      },
       diagnostics = {
         virtual_text = false,
       },
