@@ -20,8 +20,8 @@ return {
       mappings = {
         -- set leader 1 and 2 for buffer left and right movement
         n = {
-          ["<leader>1"] = { ":bp<CR>", desc = "Previous buffer" },
-          ["<leader>2"] = { ":bn<CR>", desc = "Next buffer" },
+          ["<leader>1"] = { "[b", desc = "Previous buffer", remap = true },
+          ["<leader>2"] = { "]b", desc = "Next buffer", remap = true },
         },
       },
       diagnostics = {
