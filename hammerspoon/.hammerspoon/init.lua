@@ -8,9 +8,10 @@ local appBindings = {
 	["e"] = "Al Quran",
 	["d"] = "Notion",
 	["c"] = "Todoist",
-	["v"] = "UTM",
 	["f"] = "Calibre",
+	["v"] = "UTM",
 	["j"] = "Yaak",
+	["k"] = "claude",
 }
 
 for key, appName in pairs(appBindings) do
