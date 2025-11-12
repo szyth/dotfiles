@@ -47,6 +47,8 @@ return {
         n = {
           ["<leader>1"] = { "[b", desc = "Previous buffer", remap = true },
           ["<leader>2"] = { "]b", desc = "Next buffer", remap = true },
+           -- Custom reverse delete
+          ["B"] = { "d0", desc = "Delete from cursor to start of line" },
         },
       },
       diagnostics = {
