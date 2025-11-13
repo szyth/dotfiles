@@ -8,6 +8,10 @@
 Refer `ubuntu.md` and `mac.md` for detailed setup
 
 ---
+## Todo:
+- Export astroconfig custom keybinds to `.vimrc`
+
+---
 ## Notes:
 - Default shell: Bash
 - For full IDE setup use Astronvim. dont stow `vim` or `nvim`
