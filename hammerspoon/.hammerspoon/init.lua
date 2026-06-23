@@ -1,17 +1,14 @@
 local appBindings = {
 	["q"] = "alacritty",
-	["a"] = "VSCodium",
+	["a"] = "Notion",
 	["z"] = "Firefox",
-	["w"] = "Zoom.us",
-	["s"] = "Slack",
+	["w"] = "claude",
+	["s"] = "Todoist",
 	["x"] = "Brave Browser",
-	["e"] = "claude",
-	["d"] = "Notion",
-	["c"] = "Todoist",
-	["f"] = "Calibre",
-	["v"] = "UTM",
+
 	["j"] = "Yaak",
-	["k"] = "Al Quran",
+	["k"] = "Zoom.us",
+	["l"] = "Slack",
 }
 
 for key, appName in pairs(appBindings) do
