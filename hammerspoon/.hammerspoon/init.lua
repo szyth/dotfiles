@@ -1,10 +1,12 @@
 local appBindings = {
 	["q"] = "alacritty",
-	["a"] = "Notion",
+	["a"] = "obsidian",
 	["z"] = "Firefox",
 	["w"] = "claude",
 	["s"] = "Todoist",
 	["x"] = "Brave Browser",
+
+	["d"] = "Notion",
 
 	["j"] = "Yaak",
 	["k"] = "Zoom.us",
