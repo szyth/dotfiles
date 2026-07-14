@@ -29,6 +29,7 @@ fi
 
 
 source "$HOME/.cargo/env" # cargo 
+PATH="$HOME/.local/bin:$PATH" # for claude bin
 
 ################### BASH and ZSH - END #########################
 

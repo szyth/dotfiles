@@ -62,3 +62,11 @@ save_to_clipboard = true
 [terminal.shell]
 program = "/bin/bash"
 args = ["--login"]
+
+# claude
+[keyboard]
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001b\r"
