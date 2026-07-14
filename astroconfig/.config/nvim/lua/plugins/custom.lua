@@ -1,28 +1,3 @@
--- Enable autoread when file is updated in background
-vim.opt.autoread = true
-
--- Fast reload using filesystem watcher
-local uv = vim.uv or vim.loop
-local function watch_file(bufnr)
-  local fname = vim.api.nvim_buf_get_name(bufnr)
-  if fname == "" then return end
-  local fsevent = uv.new_fs_event()
-  fsevent:start(fname, {}, vim.schedule_wrap(function()
-    if vim.api.nvim_buf_is_valid(bufnr) and vim.fn.getbufvar(bufnr, "&modified") == 0 then
-      vim.cmd("checktime " .. bufnr)
-    end
-  end))
-  vim.api.nvim_create_autocmd("BufUnload", {
-    buffer = bufnr,
-    once = true,
-    callback = function() fsevent:stop() end,
-  })
-end
-
-vim.api.nvim_create_autocmd("BufReadPost", {
-  callback = function(args) watch_file(args.buf) end,
-})
-
 return {
   {
     "folke/flash.nvim",
@@ -50,6 +25,10 @@ return {
            -- Custom reverse delete
           ["B"] = { "c0", desc = "Cut from cursor to start of line" },
         },
+        i = {
+          -- new Option+Backspace mapping, tested on Mac ONLY
+          ["<M-BS>"] = { "<C-w>", desc = "Delete word backward" },
+        },
       },
       diagnostics = {
         virtual_text = false,
@@ -57,6 +36,7 @@ return {
       options = {
         opt = { -- vim.opt.<key>
           wrap = true, -- sets vim.opt.wrap
+          autoread = true, 
         },
       },
     },
