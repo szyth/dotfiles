@@ -1,0 +1,8 @@
+[user]
+        name = <PROFESSIONAL_NAME>
+        email = <PROFESSIONAL_EMAIL>
+[core]
+        sshCommand = "ssh -i ~/.ssh/<PROFESSIONAL_KEY> -o IdentitiesOnly=yes"
+
+[includeIf "gitdir:<PATH_TO_PERSONAL_DIR>"]
+        path = ~/.gitconfig-personal
