@@ -25,7 +25,10 @@ local function setup_file_watcher()
 end
 
 -- 2. Calling the file watcher function
-setup_file_watcher()return {
+setup_file_watcher()
+
+
+return {
   {
     "folke/flash.nvim",
     event = "VeryLazy",
@@ -55,6 +58,8 @@ setup_file_watcher()return {
         i = {
           -- new Option+Backspace mapping, tested on Mac ONLY
           ["<M-BS>"] = { "<C-w>", desc = "Delete word backward" },
+          -- Map kj to exit insert mode
+          ["kj"] = { "<ESC>", desc = "Exit insert mode" },
         },
       },
       diagnostics = {
