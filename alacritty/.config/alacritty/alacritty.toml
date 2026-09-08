@@ -1,0 +1,73 @@
+[window]
+# Maximized by default (platform-specific)
+startup_mode = "Maximized"
+decorations = "Buttonless"         # macOS-specific: no close/max/min buttons
+dynamic_padding = true
+padding = { x = 8, y = 0 }
+
+# for Mac, word jumping using Alt + Arrowkey
+[[keyboard.bindings]]
+key = "Left"
+mods = "Alt"
+chars = "\u001bb" # ESC + b = move back one word in readline/bash
+
+[[keyboard.bindings]]
+key = "Right"
+mods = "Alt"
+chars = "\u001bf" # ESC + f = move forward one word in readline/bash
+
+[font]
+# Choose your preferred Nerd Font with icons
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular" }
+bold = { family = "JetBrainsMono Nerd Font", style = "Bold" }
+italic = { family = "JetBrainsMono Nerd Font", style = "Italic" }
+size = 20.0 
+builtin_box_drawing = true
+
+# iterm2 default
+[colors.primary]
+background = "#101421"
+foreground = "#dcdad5" 
+
+[colors.normal]
+black   = "#2e2e2e"
+red     = "#eb4129"
+green   = "#abe047"
+yellow  = "#f6c744"
+blue    = "#47a0f3"
+magenta = "#7b5cb0"
+cyan    = "#64dbed"
+white   = "#c0c3c8" 
+
+[colors.bright]
+black   = "#565656"
+red     = "#ec5357"
+green   = "#c0e17d"
+yellow  = "#f9da6a"
+blue    = "#49a4f8"
+magenta = "#a47de9"
+cyan    = "#99faf2"
+white   = "#d2d2d2"
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+unfocused_hollow = true
+
+[scrolling]
+history = 10000
+
+[selection]
+save_to_clipboard = true
+
+[terminal.shell]
+program = "/bin/bash"
+args = ["--login"]
+
+
+# claude
+[keyboard]
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001b\r"

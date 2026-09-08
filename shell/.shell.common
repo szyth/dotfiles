@@ -1,0 +1,56 @@
+################### BASH and ZSH #########################
+
+# aliases
+alias nv='nvim'
+alias k='kubectl'
+alias cf='cargo fmt'
+alias cb='cargo build'
+alias crbin='cargo run --bin'
+alias tm='tmux -u'
+
+# Local machine-specific/private aliases and overrides (not tracked in git)
+[ -f "$HOME/.shell.local" ] && source "$HOME/.shell.local"
+
+# Rename the tmux window to the current directory automatically on cd
+if [ -n "$TMUX" ]; then
+  PROMPT_COMMAND='tmux rename-window $(basename "$PWD")'
+fi
+
+# Auto-start tmux if not already inside it
+if [ -z "$TMUX" ] && [[ $- == *i* ]] && [ -z "$SSH_CONNECTION" ]; then
+  SESSION="default"
+
+  if tmux has-session -t "$SESSION" 2>/dev/null; then
+    tmux new-window -t "$SESSION"
+    tmux -u attach-session -t "$SESSION"
+  else
+    tmux -u new-session -s "$SESSION"
+  fi
+fi
+
+. "$HOME/.cargo/env" # cargo 
+PATH="$HOME/.local/bin:$PATH" # for claude bin
+
+################### BASH and ZSH - END #########################
+
+################### BASH only #########################
+# View Git Branch, uncomment to enable, disabled coz tmux status bar already has it.
+# parse_git_branch() {
+#   branch=$(git branch 2>/dev/null | sed -n '/\* /s///p')
+#   [ -n "$branch" ] && echo " (git:$branch)"
+# }
+# PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\]\n\$ "
+PS1="${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\n\$ "
+
+# History size
+HISTSIZE=100000
+HISTFILESIZE=200000
+# Append history
+shopt -s histappend 2>/dev/null || true
+# Ignore duplicates & commands starting with space
+HISTCONTROL=ignoreboth  # ignoredups and ignorespace
+# Ignore common “noise” commands from history
+HISTIGNORE="ls:ls *:ll:la:cd:cd :pwd:clear:exit:history:ps:top:date:whoami:uptime:tm:nvim:dev:nv"
+# Save history immediately
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+################### BASH only - END #########################

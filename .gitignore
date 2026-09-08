@@ -1,0 +1,5 @@
+astronvim/
+.DS_Store
+**/.DS_Store
+*.bak
+*.local
