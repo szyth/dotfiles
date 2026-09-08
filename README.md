@@ -22,6 +22,14 @@ Refer `ubuntu.md` and `mac.md` for detailed setup
     - Note: System-wide copy in (neo)vim does not work over SSH. Refer plugin `osc52`
 
 ---
+## Todo:
+- Export astroconfig custom keybinds to `.vimrc`
+- hammerspoon: caffeine toggle - hotkey to block sleep/display-dim during builds/downloads/reading, with a menubar icon showing on/off
+- hammerspoon: hs.hints window switcher - hotkey overlays a letter on every visible window; typing it jumps focus there, faster than repeated Cmd+Tab
+- hammerspoon: workspace launcher - one hotkey opens a set of apps and snaps them into a preset window layout (e.g. terminal + browser side by side)
+- hammerspoon: wifi-based automation - run an action automatically on network change, e.g. auto-start the mainnet/testnet ssh tunnel when joining a known wifi
+
+---
 
 ### Unstow package
 ```bash
