@@ -68,7 +68,8 @@ return {
       options = {
         opt = { -- vim.opt.<key>
           wrap = true, -- sets vim.opt.wrap
-          autoread = true, 
+          autoread = true,
+          mousescroll = "ver:1,hor:6", -- scroll one line per mouse wheel tick (default is ver:3,hor:6)
         },
       },
     },

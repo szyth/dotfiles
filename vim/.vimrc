@@ -18,6 +18,9 @@ syntax on
 " Enable mouse support
 set mouse=a
 
+" Scroll one line per mouse wheel tick (default is ver:3,hor:6)
+set mousescroll=ver:1,hor:6
+
 " Set tab width to 4 spaces
 set tabstop=4
 set shiftwidth=4
