@@ -1,12 +1,13 @@
 ```bash
 # INSTALL PACKAGES
-# stow git alacritty tmux nvim astronvim cargo rust-analyzer 
+brew install stow git alacritty tmux neovim hammerspoon cargo rust-analyzer
 echo "source ~/.bash.mac" >> ~/.bashrc
 echo "source ~/.shell.common" >> ~/.bashrc
 
 # install given font
 
 git clone https://github.com/szyth/dotfiles.git
+cd dotfiles
 # remove .DS_Store files
 find . -name '.DS_Store' -print -delete
 
@@ -14,6 +15,11 @@ find . -name '.DS_Store' -print -delete
 
 # stow (use -t ~ so it targets $HOME regardless of where this repo is cloned)
 stow -t ~ hammerspoon shell alacritty tmux astronvim astroconfig gitconfig
+
+# tmux plugin manager + plugins (or start tmux and press prefix + I to fetch them instead)
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tmux-resurrect ~/.tmux/plugins/tmux-resurrect
+git clone https://github.com/tmux-plugins/tmux-continuum ~/.tmux/plugins/tmux-continuum
 ```
 
 ## Private/local overrides (not tracked in git)
