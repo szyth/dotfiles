@@ -1,3 +1,6 @@
+-- Start Hammerspoon at login, otherwise none of the hotkeys below work after a reboot
+hs.autoLaunch(true)
+
 local appBindings = {
 	["q"] = "alacritty",
 	["a"] = "obsidian",
@@ -22,6 +25,8 @@ end
 
 -- Window management (Rectangle-style), Ctrl+Alt shortcuts
 -- fn receives (currentFrame, screenFrame) and returns the new frame to apply
+hs.window.animationDuration = 0 -- snap instantly instead of animating
+
 local function windowAction(fn)
 	return function()
 		local win = hs.window.focusedWindow()

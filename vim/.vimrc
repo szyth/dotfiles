@@ -1,4 +1,4 @@
-syntax on
+set nocompatible
 
 " Set <Space> as the leader key
 let mapleader=" "
@@ -58,8 +58,8 @@ colorscheme slate
 
 " Key mappings
 
-" jj for Normal Mode
-inoremap jj <Esc>
+" kj for Normal Mode (same as astroconfig)
+inoremap kj <Esc>
 
 " Space w to save
 nnoremap <Leader>w :w<CR>
@@ -86,7 +86,7 @@ endif
 """""""""""""""""""" TOMNOMNOM's vim file, without 3rd party plugins, plus my edits """"""""""""""""""""""""""
 
 " Base64 decode word under cursor
-nmap <Leader>b :!echo <C-R><C-W> \| base64 -d<CR>
+nnoremap <Leader>b :!echo <C-R><C-W> \| base64 -d<CR>
 
 " grep recursively for word under cursor
 " nmap <Leader>g :tabnew\|read !grep -Hnr '<C-R><C-W>'<CR>
@@ -129,9 +129,9 @@ nnoremap <C-c> <Esc>:tabe
 nnoremap <C-h> gT
 nnoremap <C-l> gt
 
-" Direction keys for wrapped lines
-nnoremap <silent> k gk
-nnoremap <silent> j gj
+" Direction keys for wrapped lines (plain j/k with a count, so 5j matches relativenumber)
+nnoremap <silent> <expr> k v:count ? 'k' : 'gk'
+nnoremap <silent> <expr> j v:count ? 'j' : 'gj'
 nnoremap <silent> <Up> gk
 nnoremap <silent> <Down> gj
 inoremap <silent> <Up> <Esc>gka
@@ -153,5 +153,3 @@ if $VIMENV == 'prev'
   noremap <C-D> :call delete(expand('%')) <bar> argdelete % <bar> bdelete<CR>
   set noswapfile
 endif
-
-set nocompatible

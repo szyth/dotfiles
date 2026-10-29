@@ -1,9 +1,6 @@
 ```bash
 # INSTALL PACKAGES
 brew install stow git alacritty tmux neovim hammerspoon rust rust-analyzer # `rust` formula ships cargo
-# Alacritty/tmux start bash as a login shell, which reads ~/.bash_profile, not ~/.bashrc
-echo "source ~/.bash.mac" >> ~/.bash_profile
-echo "source ~/.shell.common" >> ~/.bash_profile
 
 # install given font
 
@@ -15,7 +12,8 @@ find . -name '.DS_Store' -print -delete
 # git clone astronvim (https://docs.astronvim.com) in ./astronvim/.config/nvim
 
 # stow (use -t ~ so it targets $HOME regardless of where this repo is cloned)
-stow -t ~ hammerspoon shell alacritty tmux astronvim astroconfig gitconfig
+# shell-mac provides ~/.bash_profile: Alacritty/tmux start bash as a login shell, which skips ~/.bashrc
+stow -t ~ hammerspoon shell shell-mac alacritty tmux astronvim astroconfig gitconfig
 
 # tmux plugin manager + plugins (or start tmux and press prefix + I to fetch them instead)
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

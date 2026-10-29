@@ -1,6 +1,6 @@
 ```bash
 # on a fresh ubuntu
-sudo apt install git curl stow tmux xclip ripgrep fd-find -y
+sudo apt install git curl stow tmux xclip wl-clipboard ripgrep fd-find build-essential -y # build-essential: linker for cargo
 sudo snap install alacritty --classic
 sudo snap install nvim --classic
 curl https://sh.rustup.rs -sSf | sh

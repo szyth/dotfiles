@@ -1,30 +1,43 @@
 local function setup_file_watcher()
   local uv = vim.uv or vim.loop
+  local watchers = {} -- bufnr -> fs_event handle, at most one per buffer
+
+  local function unwatch_file(bufnr)
+    local fsevent = watchers[bufnr]
+    if not fsevent then return end
+    fsevent:stop()
+    fsevent:close()
+    watchers[bufnr] = nil
+  end
+
   local function watch_file(bufnr)
     if type(bufnr) ~= "number" or not vim.api.nvim_buf_is_valid(bufnr) then return end
     local fname = vim.api.nvim_buf_get_name(bufnr)
     if fname == "" then return end
-    
+
+    -- BufReadPost also fires when checktime reloads the buffer: replace the old watcher instead of stacking a new one
+    unwatch_file(bufnr)
     local fsevent = uv.new_fs_event()
+    if not fsevent then return end
+    watchers[bufnr] = fsevent
     fsevent:start(fname, {}, vim.schedule_wrap(function()
       if vim.api.nvim_buf_is_valid(bufnr) and vim.fn.getbufvar(bufnr, "&modified") == 0 then
         vim.cmd("checktime " .. bufnr)
       end
     end))
-    
-    vim.api.nvim_create_autocmd("BufUnload", {
-      buffer = bufnr,
-      once = true,
-      callback = function() if fsevent then fsevent:stop() end end,
-    })
   end
 
+  local group = vim.api.nvim_create_augroup("custom_file_watcher", { clear = true })
   vim.api.nvim_create_autocmd("BufReadPost", {
+    group = group,
     callback = function(args) watch_file(args.buf) end,
+  })
+  vim.api.nvim_create_autocmd("BufUnload", {
+    group = group,
+    callback = function(args) unwatch_file(args.buf) end,
   })
 end
 
--- 2. Calling the file watcher function
 setup_file_watcher()
 
 
