@@ -13,7 +13,7 @@ alias tm='tmux -u'
 
 # Rename the tmux window to the current directory automatically on cd
 if [ -n "$TMUX" ]; then
-  PROMPT_COMMAND='tmux rename-window $(basename "$PWD")'
+  PROMPT_COMMAND='tmux rename-window "$(basename "$PWD")"'
 fi
 
 # Auto-start tmux if not already inside it
@@ -28,12 +28,13 @@ if [ -z "$TMUX" ] && [[ $- == *i* ]] && [ -z "$SSH_CONNECTION" ]; then
   fi
 fi
 
-. "$HOME/.cargo/env" # cargo 
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env" # cargo (only exists for rustup installs)
 PATH="$HOME/.local/bin:$PATH" # for claude bin
 
 ################### BASH and ZSH - END #########################
 
 ################### BASH only #########################
+if [ -n "$BASH_VERSION" ]; then
 # View Git Branch, uncomment to enable, disabled coz tmux status bar already has it.
 # parse_git_branch() {
 #   branch=$(git branch 2>/dev/null | sed -n '/\* /s///p')
@@ -53,4 +54,5 @@ HISTCONTROL=ignoreboth  # ignoredups and ignorespace
 HISTIGNORE="ls:ls *:ll:la:cd:cd :pwd:clear:exit:history:ps:top:date:whoami:uptime:tm:nvim:dev:nv"
 # Save history immediately
 PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+fi
 ################### BASH only - END #########################

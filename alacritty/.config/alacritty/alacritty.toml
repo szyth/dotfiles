@@ -63,6 +63,12 @@ save_to_clipboard = true
 program = "/bin/bash"
 args = ["--login"]
 
+# Never inherit tmux vars from whatever launched Alacritty (e.g. Hammerspoon started from a tmux pane),
+# otherwise .shell.common thinks it's already inside tmux and skips the auto-attach
+[env]
+TMUX = ""
+TMUX_PANE = ""
+
 
 # claude
 [keyboard]

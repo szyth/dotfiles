@@ -19,7 +19,9 @@ syntax on
 set mouse=a
 
 " Scroll one line per mouse wheel tick (default is ver:3,hor:6)
-set mousescroll=ver:1,hor:6
+if exists('+mousescroll')
+  set mousescroll=ver:1,hor:6
+endif
 
 " Set tab width to 4 spaces
 set tabstop=4

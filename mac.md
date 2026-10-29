@@ -1,8 +1,9 @@
 ```bash
 # INSTALL PACKAGES
-brew install stow git alacritty tmux neovim hammerspoon cargo rust-analyzer
-echo "source ~/.bash.mac" >> ~/.bashrc
-echo "source ~/.shell.common" >> ~/.bashrc
+brew install stow git alacritty tmux neovim hammerspoon rust rust-analyzer # `rust` formula ships cargo
+# Alacritty/tmux start bash as a login shell, which reads ~/.bash_profile, not ~/.bashrc
+echo "source ~/.bash.mac" >> ~/.bash_profile
+echo "source ~/.shell.common" >> ~/.bash_profile
 
 # install given font
 
